@@ -10,10 +10,8 @@ pipeline {
       }
       steps {
         sh '''echo "Hello from step"
-              cat /etc/*release
-              env
-              pwd
-              ls -la'''
+cat /etc/*release
+              '''
       }
     }
 
@@ -26,10 +24,8 @@ pipeline {
       }
       steps {
         sh '''echo "Hello from step"
-              cat /etc/*release
-              env
-              pwd
-              ls -la
+cat /etc/*release
+              
 '''
       }
     }
