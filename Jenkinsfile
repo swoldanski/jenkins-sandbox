@@ -1,7 +1,22 @@
 pipeline {
   agent none
   stages {
-    stage('build') {
+    stage('Dockerfile') {
+      agent {
+        dockerfile {
+          filename 'Dockerfile'
+        }
+
+      }
+      steps {
+        sh '''echo "Hello from step"
+              env
+              pwd
+              ls -la'''
+      }
+    }
+
+    stage('Docker Python 3.9') {
       agent {
         docker {
           image 'python:3.9'
@@ -12,7 +27,9 @@ pipeline {
         sh '''echo "Hello from step"
               env
               pwd
-              ls -laR'''
+              ls -la
+              which python
+              python -v'''
       }
     }
 
