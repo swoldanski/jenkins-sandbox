@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('build') {
       agent {
-        dockerfile {
-          filename 'Dockerfile'
+        docker {
+          image 'python:3.9'
         }
 
       }
