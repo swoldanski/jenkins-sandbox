@@ -4,6 +4,6 @@ RUN echo "Hello from Alpine"
 
 WORKDIR /app
 
-COPY . .
+COPY ./app .
 
-RUN env; pwd; ls -la
+RUN env; pwd; ls -laR

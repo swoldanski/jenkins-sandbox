@@ -12,7 +12,7 @@ pipeline {
         sh '''echo "Hello from step"
               env
               pwd
-              ls -la'''
+              ls -laR'''
       }
     }
 
