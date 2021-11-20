@@ -10,6 +10,7 @@ pipeline {
       }
       steps {
         sh '''echo "Hello from step"
+              cat /etc/*release
               env
               pwd
               ls -la'''
@@ -25,11 +26,11 @@ pipeline {
       }
       steps {
         sh '''echo "Hello from step"
+              cat /etc/*release
               env
               pwd
               ls -la
-              which python
-              python -v'''
+'''
       }
     }
 
