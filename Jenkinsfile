@@ -9,10 +9,10 @@ pipeline {
 
       }
       steps {
-        sh '''echo "Hello World"
-whoami || true
-uname -a || true
-docker images || true'''
+        sh '''echo "Hello from step"
+              env
+              pwd
+              ls -la'''
       }
     }
 
