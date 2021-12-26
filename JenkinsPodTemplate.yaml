@@ -1,0 +1,27 @@
+# JenkinsPodTemplate.yaml
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    iam.amazonaws.com/role: ci-eu-west-1-project-jenkins
+spec:
+  serviceAccount: jenkins
+  containers:
+    - name: worker
+      image: alpine
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-sock
+      resources:
+        requests:
+          cpu: 25m
+          memory: 100Mi
+
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
