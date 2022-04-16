@@ -42,7 +42,7 @@ podman image ls $IMAGE'''
           echo 'Running in jlnp'
           sh '''git log --oneline
 git branch
-git show origin
+#git show origin
 git tag
 git tag -a -m "SUCCESS" "${NODE_NAME}"
 git log --oneline
