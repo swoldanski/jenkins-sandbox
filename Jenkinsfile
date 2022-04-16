@@ -17,7 +17,7 @@ pipeline {
       steps {
         echo 'Building container image'
         container(name: 'podman', shell: 'bash') {
-          sh 'podman build . -t ${dockerRepositoryURL}/${args.name}:${dockerTag}'
+          sh 'podman build .'
         }
 
       }
