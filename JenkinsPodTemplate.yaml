@@ -13,3 +13,20 @@ spec:
         requests:
           cpu: 25m
           memory: 100Mi
+
+    # This container is used to build project container images from pipeline
+    - name: podman
+      image: quay.io/podman/stable:v3.4.4
+      command:
+      - cat
+      tty: true
+      securityContext:
+        privileged: true
+      volumeMounts:
+        - mountPath: /var/lib/containers
+          name: containers-cache
+
+  volumes:
+    - name: containers-cache
+      hostPath:
+        path: /var/lib/containers/podman-cache/
