@@ -1,8 +1,7 @@
-lets braeak it
 pipeline {
   agent {
     kubernetes {
-      defaultContainer 'worker'
+      defaultContainer 'worker-old'
       yamlFile 'JenkinsPodTemplate.yaml'
     }
 
