@@ -40,9 +40,11 @@ podman image ls $IMAGE'''
       steps {
         container(name: 'jnlp', shell: 'bash') {
           echo 'Running in jlnp'
-          sh '''git log --oneline
+          sh '''git remote set-url --push origin ${GIT_URL}
+git show origin
+
+git log --oneline
 git branch
-#git show origin
 git tag
 git tag -a -m "SUCCESS" "${NODE_NAME}"
 git log --oneline
