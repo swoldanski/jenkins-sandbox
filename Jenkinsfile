@@ -17,8 +17,9 @@ pipeline {
       steps {
         echo 'Building container image'
         container(name: 'podman', shell: 'bash') {
-          sh '''podman build -t $GIT_BRANCH:$GIT_COMMIT .
-podman image ls$GIT_BRANCH:$GIT_COMMIT'''
+          sh '''IMAGE=$GIT_BRANCH:$GIT_COMMIT
+podman build -t $IMAGE .
+podman image ls $IMAGE'''
         }
 
       }
