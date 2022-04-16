@@ -15,7 +15,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('Validate Jenkinsfile') {
           steps {
             validateDeclarativePipeline 'Jenkinsfile'
           }
