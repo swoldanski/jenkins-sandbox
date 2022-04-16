@@ -1,18 +1,15 @@
 pipeline {
   agent {
     kubernetes {
-        defaultContainer 'worker'
-        yamlFile 'JenkinsPodTemplate.yaml'
+      defaultContainer 'worker'
+      yamlFile 'JenkinsPodTemplate.yaml'
     }
+
   }
   stages {
-    stage('Build') {
+    stage('Info') {
       steps {
-        echo 'Build started'
-        sh """#!/bin/bash -ex
-          hostname
-          printenv
-        """
+        sh 'printenv'
       }
     }
 
