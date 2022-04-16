@@ -8,8 +8,19 @@ pipeline {
   }
   stages {
     stage('Info') {
-      steps {
-        sh 'printenv'
+      parallel {
+        stage('Info') {
+          steps {
+            sh 'printenv'
+          }
+        }
+
+        stage('') {
+          steps {
+            validateDeclarativePipeline 'Jenkinsfile'
+          }
+        }
+
       }
     }
 
