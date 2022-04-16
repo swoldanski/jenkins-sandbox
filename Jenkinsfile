@@ -13,6 +13,16 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        echo 'Building container image'
+        container(name: 'podman', shell: 'bash') {
+          sh 'podman build . -t ${dockerRepositoryURL}/${args.name}:${dockerTag}'
+        }
+
+      }
+    }
+
   }
   environment {
     Z_VAR = 'whatever'
