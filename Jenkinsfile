@@ -38,8 +38,8 @@ podman image ls $IMAGE'''
 
     stage('Git info') {
       steps {
-        git(branch: '$GIT_BRANCH', url: '$GIT_URL', changelog: true, credentialsId: 'swoldanski')
-        sh 'git loh --oneline'
+        git(branch: '$GIT_BRANCH', url: '$GIT_URL', changelog: true, credentialsId: 'github')
+        sh 'git log --oneline'
       }
     }
 
