@@ -25,7 +25,4 @@ podman inspect $GIT_BRANCH:$GIT_COMMIT'''
     }
 
   }
-  environment {
-    Z_VAR = 'whatever'
-  }
 }
