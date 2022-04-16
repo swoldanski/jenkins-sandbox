@@ -38,8 +38,13 @@ podman image ls $IMAGE'''
 
     stage('Git info') {
       steps {
-        git(branch: 'env.GIT_BRANCH', url: 'env.GIT_URL', changelog: true, credentialsId: 'github')
-        sh 'git log --oneline'
+        container(name: 'jnlp', shell: 'bash') {
+          echo 'Running in jlnp'
+          sh '''git log --oneline
+git branch
+'''
+        }
+
       }
     }
 
