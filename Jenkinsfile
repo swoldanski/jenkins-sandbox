@@ -24,17 +24,17 @@ pipeline {
       }
     }
 
-    stage('Build') {
-      steps {
-        echo 'Building container image'
-        container(name: 'podman', shell: 'bash') {
-          sh '''IMAGE=$GIT_BRANCH:$GIT_COMMIT
-podman build -t $IMAGE .
-podman image ls $IMAGE'''
-        }
+//     stage('Build') {
+//       steps {
+//         echo 'Building container image'
+//         container(name: 'podman', shell: 'bash') {
+//           sh '''IMAGE=$GIT_BRANCH:$GIT_COMMIT
+// podman build -t $IMAGE .
+// podman image ls $IMAGE'''
+//         }
 
-      }
-    }
+//       }
+//     }
 
     stage('Git info') {
       steps {
